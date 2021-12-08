@@ -44,6 +44,7 @@ def gen_num():
     for i in range(1, 1000001):
         yield i
 
+
 #создадим функцию генерирующую последовательность стандартным способом циклом for для натуральных числе от 1 до 1 000 000:
 def gen_list_standart():
     lst = []
@@ -57,7 +58,7 @@ def gen_list_num():
 
 @fun_timer
 def gen_num():
-    for i in range(1, 1000001):
+    for i in range(1, 100):
         yield i
 
 @fun_timer
@@ -67,8 +68,11 @@ def gen_list_standart():
         lst.append(i)
     return lst
 
+
 print('\nДля генератора-последовательности из списка от 1 до 1 000 000, ns:', gen_list_num())
 print('\nДля генератора из списка от 1 до 1 000 000, ns:', gen_num())
 print('\nДля функции-генератора стандартным способ через цикл for списка от 1 до 1 000 000, ns:', gen_list_standart())
 print('\nВремя создания списка генератором последовательности в {} раз больше, чем время создания генератора'.format(gen_list_num()//gen_num()))
 print('\nВремя создания списка стандартным методом цикла for в {} раз больше, чем время созданием генератором последовательности'.format(round(gen_list_standart()/gen_list_num(), 1)))
+
+#print(list(gen_num())) #вывод полностью списка от генератора, без next и без for
